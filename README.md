@@ -53,6 +53,10 @@ Pushing to `main` builds and deploys. One-time setup:
 
 The site is served at **https://prajwalgiri.com.np/**. The custom domain is declared under `routes` in `wrangler.jsonc`, so each deploy keeps it attached to the Worker.
 
+## Releases
+
+Versions are recorded in `CHANGELOG.md`. To cut a release, add a `## [x.y.z] - YYYY-MM-DD` section at the top and merge to `main`; the Release workflow tags that commit and publishes a GitHub release with the section as its notes.
+
 ## Theme
 
 Light and dark mode follow the visitor's system setting by default. The toggle in the header saves an explicit choice in `localStorage`. `js/theme.js` loads in `<head>` so the saved theme applies before first paint, and the CSS keeps a `prefers-color-scheme` fallback for visitors without JavaScript. The CV page is always light because it is printed.
