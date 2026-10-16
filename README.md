@@ -49,7 +49,12 @@ Pushing to `main` builds and deploys. One-time setup:
 2. In this repo, go to **Settings › Secrets and variables › Actions** and add:
    - `CLOUDFLARE_API_TOKEN`: the token from step 1
    - `CLOUDFLARE_ACCOUNT_ID`: from the Cloudflare dashboard (Workers & Pages overview, right-hand side)
-3. Push to `main` or run the workflow manually. The site appears at `portfolio.<your-subdomain>.workers.dev`.
-4. For `prajwalgiri.com.np`: add the domain to Cloudflare, switch its nameservers at the `.np` registrar, then uncomment `routes` in `wrangler.jsonc`.
+3. Push to `main` or run the workflow manually.
+
+The site is served at **https://prajwalgiri.com.np/**. The custom domain is declared under `routes` in `wrangler.jsonc`, so each deploy keeps it attached to the Worker.
+
+## Theme
+
+Light and dark mode follow the visitor's system setting by default. The toggle in the header saves an explicit choice in `localStorage`. `js/theme.js` loads in `<head>` so the saved theme applies before first paint, and the CSS keeps a `prefers-color-scheme` fallback for visitors without JavaScript. The CV page is always light because it is printed.
 
 Pull requests build the site and the PDF but do not deploy; the output is attached to the run as an artifact.

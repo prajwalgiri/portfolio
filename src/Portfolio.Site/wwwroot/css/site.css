@@ -1,4 +1,6 @@
-/* Design tokens. One accent (burnt orange) on cool greys; light and dark follow the visitor's system setting. */
+/* Design tokens. One accent (burnt orange) on cool greys.
+   Theme: js/theme.js sets <html data-theme="light|dark"> from the visitor's saved choice or system setting.
+   Without JavaScript, the prefers-color-scheme fallback below still gives dark mode. */
 :root {
   --bg: #F3F4F6;
   --surface: #FBFBFC;
@@ -13,11 +15,24 @@
   --radius: 12px;
   --font: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+/* Dark tokens, applied by an explicit choice or, with no choice saved, by the system setting. */
+:root[data-theme="dark"] {
+  --bg: #121418;
+  --surface: #1A1D22;
+  --ink: #ECEEF1;
+  --muted: #A3AAB6;
+  --line: #2E333B;
+  --accent: #F08A4B;
+  --accent-soft: #2B1E16;
+  --on-accent: #1A0E06;
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #121418;
     --surface: #1A1D22;
     --ink: #ECEEF1;
@@ -26,7 +41,13 @@
     --accent: #F08A4B;
     --accent-soft: #2B1E16;
     --on-accent: #1A0E06;
+    color-scheme: dark;
   }
+}
+
+/* Gentle cross-fade when the visitor switches theme. */
+@media (prefers-reduced-motion: no-preference) {
+  body, .site-header, .band, .node, .chip, .btn { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -69,6 +90,12 @@ h1, h2, h3, h4, p { margin: 0; }
 .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; }
 .nav-links a:not(.btn) { color: var(--ink); text-decoration: none; padding: 12px; font-size: 15px; }
 .nav-links .btn { margin-left: 8px; font-size: 15px; padding: 11px 18px; }
+.theme-toggle { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-left: 4px; padding: 0; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
+.theme-toggle[hidden] { display: none; }
+.theme-toggle:hover { border-color: var(--ink); }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* Hero */
 .hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 56px; align-items: center; padding-block: 72px 64px; }

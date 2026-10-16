@@ -9,12 +9,9 @@
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
+  // Keep the custom domain in config so every deploy from CI preserves it.
+  "routes": [
+    { "pattern": "prajwalgiri.com.np", "custom_domain": true }
+  ],
   "observability": { "enabled": true }
-
-  // Custom domain: once prajwalgiri.com.np uses Cloudflare nameservers (a zone in this account),
-  // add a comma after the observability line above and uncomment:
-  // "routes": [
-  //   { "pattern": "prajwalgiri.com.np", "custom_domain": true },
-  //   { "pattern": "www.prajwalgiri.com.np", "custom_domain": true }
-  // ]
 }
