@@ -1,0 +1,98 @@
+<Document Content="Content" Title="@($"CV, {P.Name}")" Description="@($"One-page CV for {P.Name}, {P.Role}.")" CanonicalPath="/cv/" Print="true" BodyClass="cv-body">
+    <div class="cv-toolbar">
+        <a href="/">Back to the portfolio</a>
+        <a class="btn btn-accent press" href="@Content.Site.CvPdf">Download PDF</a>
+    </div>
+
+    <article class="cv-page">
+        <header class="cv-header">
+            <div>
+                <h1>@P.Name</h1>
+                <p>@P.Role, @P.Experience</p>
+            </div>
+            <div class="cv-contact">
+                <div>@P.Phone · <a href="mailto:@P.Email">@P.Email</a></div>
+                <div>@P.Location · <a href="@P.GitHub">@P.GitHubDisplay</a></div>
+                <div><a href="https://@P.Website">@P.Website</a> · <a href="@P.LinkedIn">@P.LinkedInDisplay</a></div>
+            </div>
+        </header>
+
+        <p class="cv-rtw"><strong>Right to work:</strong> @Content.Cv.RightToWork</p>
+
+        <section>
+            <h2>Profile</h2>
+            <p>@Content.Cv.Profile</p>
+        </section>
+
+        <section>
+            <h2>Technical skills</h2>
+            <dl class="cv-skills">
+                @foreach (var skill in Content.Cv.Skills)
+                {
+                    <dt>@skill.Label</dt>
+                    <dd>@skill.Value</dd>
+                }
+            </dl>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            @foreach (var job in Content.Experience)
+            {
+                <div class="cv-job">
+                    <div class="cv-job-head">
+                        <h3>@job.Title, @job.Company@(job.Location is null ? "" : $", {job.Location}")</h3>
+                        <span>@job.Period</span>
+                    </div>
+                    <ul>
+                        @foreach (var bullet in job.CvBullets)
+                        {
+                            <li>
+                                @if (bullet.Lead is not null)
+                                {
+                                    <strong>@bullet.Lead</strong>@(" ")
+                                }
+                                @bullet.Text
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </section>
+
+        <section>
+            <h2>Other projects</h2>
+            <ul>
+                @foreach (var project in Content.Cv.OtherProjects)
+                {
+                    <li>
+                        <strong>@project.Name</strong> @project.Text
+                        @if (project.Url is not null)
+                        {
+                            <span class="cv-url">@project.Url</span>
+                        }
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <div class="cv-two">
+            <section>
+                <h2>Education</h2>
+                <p><strong>@Content.Education.Degree</strong>, @Content.Education.Institution. @Content.Education.Grade. <span class="cv-url">@Content.Education.Period</span></p>
+            </section>
+            <section>
+                <h2>References</h2>
+                <p>Available on request.</p>
+            </section>
+        </div>
+
+        <footer class="cv-footer">Full case studies at @P.Website</footer>
+    </article>
+</Document>
+
+@code {
+    [Parameter, EditorRequired] public PortfolioContent Content { get; set; } = default!;
+
+    private Person P => Content.Person;
+}

@@ -1,0 +1,236 @@
+{
+  "site": {
+    "baseUrl": "https://prajwalgiri.com.np",
+    "title": "Prajwal Giri, Senior .NET Developer",
+    "description": "Senior .NET developer in Kent. Seven years modernising legacy systems and building real-time .NET platforms, APIs and integrations.",
+    "cvPdf": "/Prajwal-Giri-CV.pdf"
+  },
+  "person": {
+    "name": "Prajwal Giri",
+    "initials": "PG",
+    "role": "Senior .NET Developer",
+    "experience": "7+ years",
+    "intro": "Hi, I'm Prajwal. Senior .NET developer in Kent.",
+    "headlineBefore": "I turn legacy systems into fast, ",
+    "headlineEmphasis": "real-time",
+    "headlineAfter": " .NET platforms.",
+    "summary": "Seven years shipping web platforms, APIs and live integrations for finance, HR and device-monitoring clients.",
+    "photo": "/images/prajwal.webp",
+    "photoAlt": "Prajwal Giri standing on a rocky lookout above green hills",
+    "location": "Welling, Kent",
+    "email": "prajwal.giri@live.com",
+    "phone": "+44 7344 848284",
+    "website": "prajwalgiri.com.np",
+    "linkedIn": "https://www.linkedin.com/in/prajwalgiri/",
+    "gitHub": "https://github.com/prajwalgiri"
+  },
+  "facts": [
+    { "label": "Location", "value": "Welling, Kent. Happy to commute into London." },
+    { "label": "Right to work", "value": "Full right to work. No sponsorship needed." },
+    { "label": "Availability", "value": "Immediate, full time" },
+    { "label": "Looking for", "value": "Senior .NET or backend roles" }
+  ],
+  "stats": [
+    { "value": "99.9%", "label": "uptime on a mutual fund platform I optimised" },
+    { "value": "40%", "label": "less manual processing with a web accounting system" },
+    { "value": "35%", "label": "faster deployments after making builds database-independent" }
+  ],
+  "featured": [
+    {
+      "diagram": "migration",
+      "kicker": "Legacy modernisation, finance",
+      "title": "Moving a Visual Basic share registry to the web",
+      "summary": "I led the migration from a desktop VB system to a web platform the whole team could use. Performance and user experience improved by 30%.",
+      "caseStudy": "share-registry"
+    },
+    {
+      "diagram": "realtime",
+      "kicker": "Real-time systems, device monitoring (USA)",
+      "title": "Keeping LifeSafer devices and partners in sync, live",
+      "summary": "Backend for the TaskServer and State Reporting System, background services that push client data to partners, and WebSocket links to devices in the field.",
+      "caseStudy": null
+    }
+  ],
+  "filters": [
+    { "id": "all", "label": "All" },
+    { "id": "dotnet", "label": ".NET and backend" },
+    { "id": "realtime", "label": "Integrations" },
+    { "id": "web", "label": "Web and DevOps" }
+  ],
+  "projects": [
+    {
+      "title": "And1 Nepal",
+      "status": "Live",
+      "categories": [ "dotnet", "web" ],
+      "summary": "Basketball court booking in Kathmandu with live slot availability, instant confirmation and upfront payment. Court owners get a dashboard for hours, pricing and payouts; players get an Android app with slot alerts and digital passes.",
+      "tags": [ "Svelte", ".NET", "Flutter" ],
+      "url": "https://and1nepal.com/",
+      "linkLabel": "Visit and1nepal.com",
+      "image": "/images/work/and1.webp",
+      "imageAlt": "And1 Nepal home page with live court availability"
+    },
+    {
+      "title": "Nepal Tourism Board event management",
+      "status": "Live",
+      "categories": [ "dotnet", "web" ],
+      "summary": "Event management system with a public events calendar, used for events such as the NTB × TikTok workshop. Next.js frontend on a .NET backend.",
+      "tags": [ "Next.js", ".NET" ],
+      "image": "/images/work/ntb.webp",
+      "imageAlt": "Nepal Tourism Board events calendar showing the International Tourism Fair"
+    },
+    {
+      "title": "Vedic Law Firm website",
+      "status": "Live",
+      "categories": [ "web" ],
+      "summary": "Website for a Kathmandu law firm on a headless CMS, with practice areas, publications, team profiles and consultation booking.",
+      "tags": [ "SvelteKit", "Sanity", "Cloudflare Workers" ],
+      "url": "https://vedic.com.np/",
+      "linkLabel": "Visit vedic.com.np",
+      "image": "/images/work/vedic.webp",
+      "imageAlt": "Vedic Law Firm home page"
+    },
+    {
+      "title": "Daily Sewa",
+      "status": "Live",
+      "categories": [ "web" ],
+      "summary": "Home services marketplace: book vetted professionals at fixed prices, same-day or in advance, and pay on completion. I built the React prototype and run its container deployment.",
+      "tags": [ "React", "Docker", "Coolify", "Traefik" ],
+      "url": "https://dailysewa.com",
+      "linkLabel": "Visit dailysewa.com",
+      "image": "/images/work/dailysewa.webp",
+      "imageAlt": "Daily Sewa home page for booking service professionals"
+    },
+    {
+      "title": "Job Sewa",
+      "status": "Live",
+      "categories": [ "web" ],
+      "summary": "Free Nepali jobs platform where employers post vacancies and search candidates, and job seekers search and apply by category.",
+      "tags": [],
+      "url": "https://jobsewa.com.np",
+      "linkLabel": "Visit jobsewa.com.np",
+      "image": "/images/work/jobsewa-logo.webp",
+      "imageAlt": "Job Sewa logo"
+    },
+    {
+      "title": "Professional Accounting System",
+      "status": "Client work",
+      "categories": [ "dotnet" ],
+      "summary": "Web accounting used by the Nepal Tourism Board, ICAN and PCS.",
+      "impact": "40% less manual processing",
+      "tags": [ ".NET", "MS Report Viewer", "MSSQL" ]
+    },
+    {
+      "title": "HR Management System",
+      "status": "Client work",
+      "categories": [ "dotnet" ],
+      "summary": "Web HR system for the Institute of Chartered Accountants, shaped around how their HR team works.",
+      "impact": "50% more efficient HR processes",
+      "tags": [ "ASP.NET", "Razor Pages", "EF Core" ]
+    },
+    {
+      "title": "Mutual fund platform",
+      "status": "Client work",
+      "categories": [ "dotnet", "realtime" ],
+      "summary": "Built and integrated the APIs for an open-ended mutual fund system, then tuned it for availability.",
+      "impact": "99.9% uptime, 25% better interoperability",
+      "tags": [ "ASP.NET Core Web API", "Oracle" ]
+    },
+    {
+      "title": "Payment gateway integration",
+      "status": "Client work",
+      "categories": [ "dotnet", "realtime" ],
+      "summary": "Several payment and wallet providers behind one secure transaction flow.",
+      "impact": "15% higher transaction success",
+      "tags": [ "C#", "REST" ]
+    },
+    {
+      "title": "ERP system design",
+      "status": "Client work",
+      "categories": [ "dotnet" ],
+      "summary": "Gathered requirements and designed ERP systems on a distributed architecture, deployable on any of three databases.",
+      "impact": "20% lower running costs, 35% faster deploys",
+      "tags": [ "MSSQL", "PostgreSQL", "Oracle" ]
+    },
+    {
+      "title": "Monster Sweeps",
+      "status": "Client work",
+      "categories": [ "dotnet", "realtime" ],
+      "summary": "Event-driven game logic and state management in Unity, for Android and desktop.",
+      "tags": [ "C#", "Unity" ]
+    }
+  ],
+  "about": {
+    "statement": "I'm happiest in the backend, sitting with the people who run a process until I understand it, then designing the system around what they actually do.",
+    "aside": "Alongside the enterprise work I've built public products people use every day, like And1 Nepal, Job Sewa and Daily Sewa.",
+    "principles": [
+      { "title": "I write decisions down", "body": "Short decision records and project guides mean the next developer can find the reasoning without having to find me." },
+      { "title": "I'd rather be readable than clever", "body": "Clear layering, consistent naming and small changes that are easy to review." },
+      { "title": "I build things that can be debugged at 2am", "body": "Structured logs, sensible retries on jobs and database calls, and deployments you can reason about from the logs." }
+    ]
+  },
+  "tools": "Mostly ==C#== and ==ASP.NET Core Web API== with **EF Core**, on **MSSQL**, **PostgreSQL** or **Oracle**. For live data I reach for **WebSockets**, **Server-Sent Events** and background services. On the front end I use **Next.js** and **Svelte**, with **Flutter** for mobile. I still maintain **Web Forms** and **Razor Pages** apps, ship with **Azure DevOps**, **PowerShell** and **Docker**, and have built games in **Unity**.",
+  "experience": [
+    {
+      "title": "Senior .NET Developer",
+      "company": "Elite Technologies",
+      "location": null,
+      "period": "2025 to Sep 2026",
+      "groups": [
+        { "heading": "LifeSafer (SCRAM Systems, USA)", "body": "New platform features, the TaskServer and State Reporting backends, real-time partner data feeds and WebSocket device links." },
+        { "heading": "Monster Sweeps", "body": "Event-driven game systems and state management, shipped as Unity (C#) apps for Android and desktop." }
+      ],
+      "cvBullets": [
+        { "lead": "LifeSafer (SCRAM Systems, USA):", "text": "designed and built new platform features and the backend for the TaskServer and State Reporting System." },
+        { "lead": null, "text": "Built background services that process client data and push it to partners in real time." },
+        { "lead": null, "text": "Implemented real-time WebSocket communication with devices to exchange event information." },
+        { "lead": "Monster Sweeps:", "text": "event-driven systems, state management and modular game logic; cross-platform Unity (C#) apps for Android and desktop." }
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Professional Computer Systems",
+      "location": "Lalitpur, Nepal",
+      "period": "2019 to 2025",
+      "groups": [
+        { "heading": "Modernising", "body": "Led the VB share registry migration (30% better performance and UX). Built accounting software for the Nepal Tourism Board and ICAN (40% less manual work) and an HR system for ICAN (50% more efficient)." },
+        { "heading": "Integrating", "body": "APIs for an open-ended mutual fund system (25% better interoperability) and multiple payment and wallet gateways (15% higher success rate)." },
+        { "heading": "Designing and running", "body": "ERP architecture that cut operational costs by 20%, database-independent builds that cut deployment time by 35%, and 99.9% uptime on the fund platform." }
+      ],
+      "cvBullets": [
+        { "lead": "Share Management System:", "text": "led the migration from legacy Visual Basic to the web, improving performance and user experience by 30%." },
+        { "lead": "Professional Accounting System:", "text": "web accounting for clients including the Nepal Tourism Board and ICAN; 40% less manual processing." },
+        { "lead": "HR Management System:", "text": "web HR system for the Institute of Chartered Accountants; 50% higher process efficiency." },
+        { "lead": "Mutual fund platform:", "text": "built and integrated its APIs (25% better interoperability) and raised uptime to 99.9%." },
+        { "lead": "Payment gateways:", "text": "integrated multiple payment and wallet services; 15% higher transaction success rate." },
+        { "lead": "ERP design:", "text": "gathered requirements and designed ERP systems on a distributed architecture; 20% lower operational costs." },
+        { "lead": "Database-independent systems:", "text": "easier customisation and 35% faster deployments." }
+      ]
+    }
+  ],
+  "education": {
+    "degree": "BTech Computer Science",
+    "institution": "Kalinga University, Raipur",
+    "period": "2013 to 2018",
+    "grade": "Grade A"
+  },
+  "cv": {
+    "rightToWork": "Full right to work in the UK, no sponsorship required. Available immediately for full-time roles.",
+    "profile": "Senior software engineer with over seven years in web development, backend development and system design. I migrate legacy systems to modern web platforms, build web applications end to end and integrate complex APIs, including real-time device and partner integrations. I work closely with cross-functional teams to deliver software that meets client and industry standards.",
+    "skills": [
+      { "label": "Backend", "value": "C#, ASP.NET Core Web API, ASP.NET Web App, Web Forms, Entity Framework Core, Razor Pages, MS Report Viewer" },
+      { "label": "Real-time", "value": "WebSockets, Server-Sent Events, background services" },
+      { "label": "Frontend", "value": "HTML, CSS, JavaScript, KnockoutJS, Next.js, Svelte, Flutter (mobile)" },
+      { "label": "Databases", "value": "MSSQL, PostgreSQL, Oracle" },
+      { "label": "Tools", "value": "Azure DevOps, Docker, PowerShell, Bash, Windows Forms, Unity" }
+    ],
+    "otherProjects": [
+      { "name": "Nepal Tourism Board event management:", "text": "event management system and public events calendar (including the NTB × TikTok workshop); Next.js frontend, .NET backend.", "url": null },
+      { "name": "Daily Sewa:", "text": "home services marketplace; React prototype and Docker deployment on Coolify and Traefik.", "url": "dailysewa.com" },
+      { "name": "Job Sewa:", "text": "Nepali jobs platform for employers and job seekers.", "url": "jobsewa.com.np" },
+      { "name": "And1 Nepal:", "text": "basketball court booking for players and court owners, with live availability and payouts; Svelte, .NET and a Flutter mobile app.", "url": "and1nepal.com" }
+    ]
+  },
+  "caseStudies": {
+    "share-registry": { "published": false }
+  }
+}

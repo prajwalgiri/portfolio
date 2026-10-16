@@ -1,0 +1,57 @@
+/* One-page A4 CV. The same page is printed to /Prajwal-Giri-CV.pdf in CI. Always light: it's paper. */
+@page { size: A4; margin: 0; }
+
+.cv-body {
+  --ink: #15171C;
+  --cv-muted: #3A3F48;
+  --cv-line: #D9DBD6;
+  --cv-accent: #B4440F;
+  background: #E9EBEE;
+  color: var(--ink);
+  color-scheme: light;
+}
+
+.cv-toolbar { max-width: 794px; margin: 24px auto 12px; padding-inline: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.cv-toolbar a:not(.btn) { color: var(--ink); }
+.cv-body .btn-accent { background: var(--cv-accent); color: #FDFBFA; }
+
+.cv-page {
+  width: 794px; min-height: 1123px; max-width: 100%;
+  margin: 0 auto 48px; padding: 44px 56px 36px;
+  background: #FFFFFF; color: var(--ink);
+  font-size: 12.5px; line-height: 1.42;
+  display: flex; flex-direction: column; gap: 12px;
+  box-shadow: 0 8px 32px rgb(21 23 28 / .12);
+}
+.cv-page a { color: inherit; text-decoration: none; }
+.cv-page h2 { margin: 0 0 4px; font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--cv-accent); }
+.cv-page ul { margin: 4px 0 0; padding-left: 16px; display: flex; flex-direction: column; gap: 1px; }
+.cv-page strong { font-weight: 600; }
+
+.cv-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.cv-header h1 { font-size: 28px; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+.cv-header p { margin-top: 3px; font-size: 14px; color: var(--cv-muted); }
+.cv-contact { text-align: right; font-family: var(--mono); font-size: 11.5px; color: var(--cv-muted); line-height: 1.55; }
+.cv-rtw { font-size: 12px; background: #F2F3F0; padding: 6px 10px; border-radius: 4px; }
+.cv-skills { margin: 0; display: grid; grid-template-columns: 92px 1fr; gap: 1px 12px; }
+.cv-skills dt { font-weight: 600; }
+.cv-skills dd { margin: 0; }
+.cv-job + .cv-job { margin-top: 8px; }
+.cv-job-head { display: flex; justify-content: space-between; gap: 16px; }
+.cv-job-head h3 { font-size: 13.5px; font-weight: 600; }
+.cv-job-head span, .cv-url { font-family: var(--mono); font-size: 11px; color: var(--cv-muted); white-space: nowrap; }
+.cv-two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.cv-footer { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--cv-line); font-family: var(--mono); font-size: 11px; color: #4A4F59; }
+
+@media (max-width: 820px) {
+  .cv-page { width: auto; min-height: 0; padding: 28px 20px; margin-inline: 12px; }
+  .cv-header { flex-direction: column; align-items: flex-start; }
+  .cv-contact { text-align: left; }
+  .cv-two { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .cv-body { background: #FFFFFF; }
+  .cv-toolbar { display: none; }
+  .cv-page { width: 210mm; height: 297mm; min-height: 0; margin: 0; box-shadow: none; overflow: hidden; }
+}

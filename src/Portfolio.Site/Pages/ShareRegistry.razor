@@ -1,0 +1,77 @@
+@* Case study. Fill every <span class="todo"> before setting caseStudies.share-registry.published to true. *@
+<Document Content="Content" Title="@($"Share registry migration case study, {Content.Person.Name}")" Description="How I led the migration of a legacy Visual Basic share registry to a .NET web platform." CanonicalPath="/work/share-registry/">
+    <SiteHeader Content="Content" Minimal="true" />
+
+    <main class="container section">
+        <p class="kicker">Legacy modernisation at Professional Computer Systems</p>
+        <h1 class="case-title">Moving a Visual Basic share registry to the web, without stopping the business</h1>
+        <p class="section-lead">I led the migration from a desktop VB system to a web platform. Performance and user experience improved by 30%.</p>
+
+        <dl class="facts case-meta">
+            <div><dt>My role</dt><dd>Migration lead</dd></div>
+            <div><dt>When</dt><dd><span class="todo">[Year to year]</span></dd></div>
+            <div><dt>Team</dt><dd><span class="todo">[Team size]</span></dd></div>
+            <div><dt>Stack</dt><dd>Visual Basic to <span class="todo">[ASP.NET, MSSQL?]</span></dd></div>
+        </dl>
+
+        <div class="case-layout">
+            <nav class="case-toc" aria-label="On this page">
+                <p class="muted">On this page</p>
+                <ol>
+                    <li><a href="#context">Where it started</a></li>
+                    <li><a href="#architecture">Before and after</a></li>
+                    <li><a href="#decisions">The big decisions</a></li>
+                    <li><a href="#results">What changed</a></li>
+                    <li><a href="#retro">Looking back</a></li>
+                </ol>
+            </nav>
+
+            <article class="case-body">
+                <section id="context">
+                    <h2>Where it started</h2>
+                    <p><span class="todo">[In your own words: what the VB system made hard, and who felt it most.]</span></p>
+                    <p class="muted"><span class="todo">[The constraints: data that had to move intact, audit rules, how much downtime the business could take.]</span></p>
+                </section>
+
+                <section id="architecture">
+                    <h2>Before and after</h2>
+                    <MigrationDiagram />
+                </section>
+
+                <section id="decisions">
+                    <h2>The big decisions</h2>
+                    <p class="muted">Written the way I write decision records at work.</p>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th scope="col">Decision</th><th scope="col">Why</th><th scope="col">What it cost</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><span class="todo">[Big-bang cutover, or module by module?]</span></td><td><span class="todo">[Why]</span></td><td><span class="todo">[Cost]</span></td></tr>
+                                <tr><td><span class="todo">[How the data moved and how you proved it was right]</span></td><td><span class="todo">[Why]</span></td><td><span class="todo">[Cost]</span></td></tr>
+                                <tr><td><span class="todo">[What you rewrote, and what you kept]</span></td><td><span class="todo">[Why]</span></td><td><span class="todo">[Cost]</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="results">
+                    <h2>What changed</h2>
+                    <div class="stats">
+                        <div class="stat stat-accent"><p class="stat-value">30%</p><p class="stat-label">better system performance and user experience</p></div>
+                    </div>
+                    <p class="muted"><span class="todo">[One line on how the 30% was measured. Interviewers will ask.]</span></p>
+                </section>
+
+                <section id="retro">
+                    <h2>Looking back</h2>
+                    <p><span class="todo">[Two or three honest lessons. Senior interviewers often read this part first.]</span></p>
+                </section>
+            </article>
+        </div>
+    </main>
+</Document>
+
+@code {
+    [Parameter, EditorRequired] public PortfolioContent Content { get; set; } = default!;
+}

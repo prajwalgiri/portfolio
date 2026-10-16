@@ -1,0 +1,50 @@
+@* Full HTML document shell shared by every page. *@
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Title</title>
+    <meta name="description" content="@Description">
+    <meta name="color-scheme" content="light dark">
+    @if (CanonicalPath is not null)
+    {
+        <link rel="canonical" href="@($"{Content.Site.BaseUrl.TrimEnd('/')}{CanonicalPath}")">
+    }
+    @if (NoIndex)
+    {
+        <meta name="robots" content="noindex">
+    }
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@Title">
+    <meta property="og:description" content="@Description">
+    <meta property="og:image" content="@($"{Content.Site.BaseUrl.TrimEnd('/')}{Content.Person.Photo}")">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="/css/site.css">
+    @if (Print)
+    {
+        <link rel="stylesheet" href="/css/cv.css">
+    }
+</head>
+<body class="@BodyClass">
+    @ChildContent
+    @if (IncludeScript)
+    {
+        <script src="/js/site.js" defer></script>
+    }
+</body>
+</html>
+
+@code {
+    [Parameter, EditorRequired] public PortfolioContent Content { get; set; } = default!;
+    [Parameter, EditorRequired] public string Title { get; set; } = "";
+    [Parameter] public string? Description { get; set; }
+    [Parameter] public string? CanonicalPath { get; set; }
+    [Parameter] public bool NoIndex { get; set; }
+    [Parameter] public bool Print { get; set; }
+    [Parameter] public bool IncludeScript { get; set; }
+    [Parameter] public string? BodyClass { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

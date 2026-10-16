@@ -1,0 +1,12 @@
+<Document Content="Content" Title="@($"Page not found, {Content.Person.Name}")" NoIndex="true">
+    <SiteHeader Content="Content" Minimal="true" />
+    <main class="container section not-found">
+        <h1>That page doesn't exist.</h1>
+        <p class="section-lead">It may have moved while I was tidying up. The work, experience and CV are all on the home page.</p>
+        <a class="btn btn-ink press" href="/">Go to the home page</a>
+    </main>
+</Document>
+
+@code {
+    [Parameter, EditorRequired] public PortfolioContent Content { get; set; } = default!;
+}

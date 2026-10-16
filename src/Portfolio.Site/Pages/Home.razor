@@ -1,0 +1,190 @@
+<Document Content="Content" Title="@Content.Site.Title" Description="@Content.Site.Description" CanonicalPath="/" IncludeScript="true">
+    <SiteHeader Content="Content" />
+
+    <main id="top">
+        <section class="container hero">
+            <div class="hero-copy">
+                <p class="hero-intro">@P.Intro</p>
+                <h1>@P.HeadlineBefore<em>@P.HeadlineEmphasis</em>@P.HeadlineAfter</h1>
+                <p class="hero-summary">@P.Summary</p>
+                <div class="actions">
+                    <a class="btn btn-ink press" href="#work">See my work</a>
+                    <a class="btn btn-outline press" href="@P.GitHub">GitHub</a>
+                </div>
+            </div>
+            <img class="hero-photo" src="@P.Photo" alt="@P.PhotoAlt" width="768" height="960" fetchpriority="high">
+        </section>
+
+        <section class="band" aria-labelledby="facts-h">
+            <div class="container section-tight">
+                <h2 id="facts-h" class="visually-hidden">Quick facts</h2>
+                <dl class="facts">
+                    @foreach (var fact in Content.Facts)
+                    {
+                        <div><dt>@fact.Label</dt><dd>@fact.Value</dd></div>
+                    }
+                </dl>
+                <div class="stats">
+                    @foreach (var (stat, i) in Content.Stats.Select((s, i) => (s, i)))
+                    {
+                        <div class="stat @(i == 0 ? "stat-accent" : "")">
+                            <p class="stat-value">@stat.Value</p>
+                            <p class="stat-label">@stat.Label</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="band band-surface" aria-labelledby="work-h">
+            <div class="container section">
+                <h2 id="work-h" class="section-title">Work I'd like to talk about</h2>
+                <p class="section-lead">Two projects in depth, then everything else. Client work is described without confidential detail.</p>
+
+                @foreach (var (work, i) in Content.Featured.Select((w, i) => (w, i)))
+                {
+                    <article class="featured @(i % 2 == 1 ? "featured-reverse" : "")">
+                        @if (work.Diagram == "migration")
+                        {
+                            <MigrationDiagram />
+                        }
+                        else
+                        {
+                            <RealtimeDiagram />
+                        }
+                        <div class="featured-copy">
+                            <p class="kicker">@work.Kicker</p>
+                            <h3>@work.Title</h3>
+                            <p>@work.Summary</p>
+                            @if (Content.IsPublished(work.CaseStudy))
+                            {
+                                <a class="btn btn-outline press" href="/work/@work.CaseStudy/">Read the case study</a>
+                            }
+                        </div>
+                    </article>
+                }
+
+                <h3 class="subsection-title">More projects</h3>
+                <div class="filters" role="group" aria-label="Filter projects" hidden data-filters>
+                    @foreach (var filter in Content.Filters)
+                    {
+                        <button type="button" class="chip press" data-filter="@filter.Id" aria-pressed="@(filter.Id == "all" ? "true" : "false")">@filter.Label</button>
+                    }
+                </div>
+
+                <ul class="projects" data-projects>
+                    @foreach (var project in OrderedProjects)
+                    {
+                        <li class="project" data-categories="@string.Join(' ', project.Categories)">
+                            @if (project.Image is not null)
+                            {
+                                <img src="@project.Image" alt="@project.ImageAlt" loading="lazy" width="1600" height="1000">
+                            }
+                            <div class="project-head">
+                                <h4>@project.Title</h4>
+                                <span class="project-status">@project.Status</span>
+                            </div>
+                            <p class="project-summary">@project.Summary</p>
+                            @if (project.Impact is not null)
+                            {
+                                <p class="project-impact">@project.Impact</p>
+                            }
+                            @if (project.Tags.Count > 0)
+                            {
+                                <ul class="tags" aria-label="Stack">
+                                    @foreach (var tag in project.Tags)
+                                    {
+                                        <li>@tag</li>
+                                    }
+                                </ul>
+                            }
+                            @if (project.Url is not null)
+                            {
+                                <a class="project-link" href="@project.Url" rel="noopener">@project.LinkLabel</a>
+                            }
+                        </li>
+                    }
+                </ul>
+                <p class="empty" hidden data-empty>Nothing in this group yet.</p>
+            </div>
+        </section>
+
+        <section id="about" class="band" aria-labelledby="about-h">
+            <div class="container section split">
+                <div>
+                    <h2 id="about-h" class="section-title">How I like to work</h2>
+                    <p class="statement">@Content.About.Statement</p>
+                    <p class="muted">@Content.About.Aside</p>
+                </div>
+                <ol class="principles">
+                    @foreach (var principle in Content.About.Principles)
+                    {
+                        <li>
+                            <h3>@principle.Title</h3>
+                            <p>@principle.Body</p>
+                        </li>
+                    }
+                </ol>
+            </div>
+        </section>
+
+        <section class="band band-surface" aria-labelledby="tools-h">
+            <div class="container section-tight">
+                <h2 id="tools-h" class="subsection-title">What I work with</h2>
+                <p class="tools">@InlineMarkup.Render(Content.Tools)</p>
+            </div>
+        </section>
+
+        <section id="experience" class="band" aria-labelledby="exp-h">
+            <div class="container section">
+                <h2 id="exp-h" class="section-title">Where I've worked</h2>
+                @foreach (var job in Content.Experience)
+                {
+                    <article class="job">
+                        <p class="job-period">@job.Period</p>
+                        <div class="job-body">
+                            <h3>@job.Title, @job.Company</h3>
+                            @if (job.Location is not null)
+                            {
+                                <p class="muted">@job.Location</p>
+                            }
+                            <div class="job-groups">
+                                @foreach (var group in job.Groups)
+                                {
+                                    <div>
+                                        <p class="job-group-heading">@group.Heading</p>
+                                        <p class="muted">@group.Body</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </article>
+                }
+                <p class="muted education">@Content.Education.Degree, @Content.Education.Institution (@Content.Education.Period). @Content.Education.Grade.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="band band-surface" aria-labelledby="contact-h">
+            <div class="container section">
+                <h2 id="contact-h" class="contact-title">Hiring for a .NET role? I'd love to hear about it.</h2>
+                <p class="section-lead">I'm happy to walk through any of these systems, including what I'd do differently now. References on request.</p>
+                <div class="contact-links">
+                    <a class="btn btn-accent press" href="mailto:@P.Email">@P.Email</a>
+                    <a href="@P.GitHub">@P.GitHubDisplay</a>
+                    <a href="@P.LinkedIn">@P.LinkedInDisplay</a>
+                </div>
+                <p class="footer-note">Built with .NET and Razor, served by Cloudflare Workers. <a href="https://github.com/prajwalgiri/portfolio">Source on GitHub</a>.</p>
+            </div>
+        </section>
+    </main>
+</Document>
+
+@code {
+    [Parameter, EditorRequired] public PortfolioContent Content { get; set; } = default!;
+
+    private Person P => Content.Person;
+
+    // Projects with a screenshot first, so the two-column grid pairs up neatly.
+    private IEnumerable<Project> OrderedProjects =>
+        Content.Projects.Where(p => p.Image is not null).Concat(Content.Projects.Where(p => p.Image is null));
+}
